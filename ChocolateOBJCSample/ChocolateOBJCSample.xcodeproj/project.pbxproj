@@ -24,6 +24,7 @@
 		DF531A5523429E73000386A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF531A5723429E73000386A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF531A5823429E73000386A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DF531A632343F1C7000386A4 /* bunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = bunny.mp4; path = ../../bunny.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 				DF531A5423429E73000386A4 /* LaunchScreen.storyboard */,
 				DF531A5723429E73000386A4 /* Info.plist */,
 				DF531A5823429E73000386A4 /* main.m */,
+				DF531A632343F1C7000386A4 /* bunny.mp4 */,
 			);
 			path = ChocolateOBJCSample;
 			sourceTree = "<group>";
