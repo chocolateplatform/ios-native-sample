@@ -9,6 +9,9 @@
 #import "ViewController.h"
 @import AVKit;
 #import "ViewController+ChocolateInterstitial.h"
+#import "ViewController+ChocolateReward.h"
+#import "ViewController+ChocolateInview.h"
+#import "ViewController+ChocolatePreroll.h"
 
 static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4";
 
@@ -202,6 +205,8 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     
     if([adType isEqualToString:@"Interstitial"]) {
         [self loadInterstitialAd];
+    } else if([adType isEqualToString:@"Rewarded"]) {
+        [self loadRewardAd];
     }
 }
 
@@ -210,6 +215,8 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
 
     if([adType isEqualToString:@"Interstitial"]) {
         [self showInterstitialAd];
+    } else if([adType isEqualToString:@"Rewarded"]) {
+        [self showRewardAd];
     }
 }
 
