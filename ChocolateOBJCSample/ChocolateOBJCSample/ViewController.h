@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    NSString *appName; //for logging
+    NSMutableArray<NSNumber *> *adTypeLoadedStates;
+}
+
+-(void)adjustUIForAdState;
 
 
 @end

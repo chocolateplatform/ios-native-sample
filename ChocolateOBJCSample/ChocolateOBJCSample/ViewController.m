@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 @import AVKit;
+#import "ViewController+ChocolateInterstitial.h"
 
 static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4";
 
@@ -32,6 +33,9 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+    adTypeLoadedStates = [@[@NO,@NO,@NO,@NO] mutableCopy];
+    
     adTypes = @[@"Interstitial", @"Rewarded", @"Inview", @"Preroll"];
     
     // Do any additional setup after loading the view.
@@ -92,7 +96,7 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     [showButton setTitle:@"Show" forState:UIControlStateNormal];
     showButton.enabled = NO;
     [showButton.titleLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle1]];
-    [showButton addTarget:self action:@selector(loadSelectedAdType:) forControlEvents:UIControlEventTouchUpInside];
+    [showButton addTarget:self action:@selector(showSelectedAdType:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:showButton];
     showButton.translatesAutoresizingMaskIntoConstraints = NO;
     [showButton.leftAnchor constraintEqualToAnchor:loadButton.rightAnchor constant:20].active = YES;
@@ -175,6 +179,8 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     } else {
         inviewAdContainer.hidden = YES;
     }
+    
+    [self adjustUIForAdState];
 }
 
 #pragma mark - Publisher content
@@ -192,7 +198,26 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
 #pragma mark - button actions
 
 -(void)loadSelectedAdType:(id)sender {
+    NSString *adType = adTypes[[adTypePicker selectedRowInComponent:0]];
     
+    if([adType isEqualToString:@"Interstitial"]) {
+        [self loadInterstitialAd];
+    }
+}
+
+-(void)showSelectedAdType:(id)sender {
+    NSString *adType = adTypes[[adTypePicker selectedRowInComponent:0]];
+
+    if([adType isEqualToString:@"Interstitial"]) {
+        [self showInterstitialAd];
+    }
+}
+
+#pragma mark - UI correctness
+
+-(void)adjustUIForAdState {
+    BOOL relevantAdTypeState = [adTypeLoadedStates[[adTypePicker selectedRowInComponent:0]] boolValue];
+    showButton.enabled = relevantAdTypeState;
 }
 
 @end

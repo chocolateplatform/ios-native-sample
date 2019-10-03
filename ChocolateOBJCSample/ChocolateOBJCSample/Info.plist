@@ -2,6 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+		</dict>
+		<key>NSTemporaryExceptionMinimumTLSVersion</key>
+		<string>1.0</string>
+		<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+		<false/>
+	</dict>
+	<key>CHP_TEST_ADS</key>
+	<string>enable</string>
+	<key>CHP_LOGGING_ENABLE</key>
+	<string>true</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
