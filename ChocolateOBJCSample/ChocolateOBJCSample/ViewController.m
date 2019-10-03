@@ -20,6 +20,9 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     UILabel *prerollFullscreenPrompt;
     UISwitch *prerollFullscreenToggle;
     
+    UIView *inviewAdContainer;
+    UILabel *inviewAdPrompt;
+    
     AVPlayerViewController *publisherVideo;
 }
 
@@ -75,10 +78,67 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
                                              selector:@selector(mainContentDone:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
                                                object:[publisherVideo.player currentItem]];
-}
-
--(void)viewDidAppear:(BOOL)animated {
-    [publisherVideo.player play];
+    
+    loadButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [loadButton setTitle:@"Load" forState:UIControlStateNormal];
+    [loadButton.titleLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle1]];
+    [loadButton addTarget:self action:@selector(loadSelectedAdType:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loadButton];
+    loadButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [loadButton.leftAnchor constraintEqualToAnchor:prompt.leftAnchor].active = YES;
+    [loadButton.topAnchor constraintEqualToAnchor:adTypePicker.bottomAnchor constant:20].active = YES;
+    
+    showButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [showButton setTitle:@"Show" forState:UIControlStateNormal];
+    showButton.enabled = NO;
+    [showButton.titleLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle1]];
+    [showButton addTarget:self action:@selector(loadSelectedAdType:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:showButton];
+    showButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [showButton.leftAnchor constraintEqualToAnchor:loadButton.rightAnchor constant:20].active = YES;
+    [showButton.topAnchor constraintEqualToAnchor:adTypePicker.bottomAnchor constant:20].active = YES;
+    
+    prerollFullscreenToggle = [[UISwitch alloc] init];
+    [self.view addSubview:prerollFullscreenToggle];
+    prerollFullscreenToggle.translatesAutoresizingMaskIntoConstraints = NO;
+    [prerollFullscreenToggle.centerYAnchor constraintEqualToAnchor:showButton.centerYAnchor].active = YES;
+    [prerollFullscreenToggle.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-10].active = YES;
+    
+    prerollFullscreenPrompt = [[UILabel alloc] init];
+    prerollFullscreenPrompt.font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
+    prerollFullscreenPrompt.text = @"Fullscreen";
+    [prerollFullscreenPrompt sizeToFit];
+    [self.view addSubview:prerollFullscreenPrompt];
+    prerollFullscreenPrompt.translatesAutoresizingMaskIntoConstraints = NO;
+    [prerollFullscreenPrompt.centerYAnchor constraintEqualToAnchor:prerollFullscreenToggle.centerYAnchor].active = YES;
+    [prerollFullscreenPrompt.trailingAnchor constraintEqualToAnchor:prerollFullscreenToggle.leadingAnchor constant:-20].active = YES;
+    
+    prerollFullscreenPrompt.hidden = YES;
+    prerollFullscreenToggle.hidden = YES;
+    
+    inviewAdContainer = [[UIView alloc] init];
+    inviewAdContainer.backgroundColor = UIColor.lightGrayColor;
+    [self.view addSubview:inviewAdContainer];
+    inviewAdContainer.translatesAutoresizingMaskIntoConstraints = NO;
+    [inviewAdContainer.topAnchor constraintEqualToAnchor:loadButton.bottomAnchor constant:10].active = YES;
+    [inviewAdContainer.bottomAnchor constraintEqualToAnchor:publisherVideo.view.topAnchor constant:-10].active = YES;
+    [inviewAdContainer.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [inviewAdContainer.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
+    
+    inviewAdPrompt = [[UILabel alloc] init];
+    inviewAdPrompt.font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
+    inviewAdPrompt.text = @"Inview ad:";
+    [inviewAdPrompt sizeToFit];
+    [inviewAdContainer addSubview:inviewAdPrompt];
+    inviewAdPrompt.translatesAutoresizingMaskIntoConstraints = NO;
+    [inviewAdPrompt.leadingAnchor constraintEqualToAnchor:inviewAdContainer.leadingAnchor constant:10].active = YES;
+    [inviewAdPrompt.topAnchor constraintEqualToAnchor:inviewAdPrompt.topAnchor constant:10].active = YES;
+    
+    prerollFullscreenPrompt.hidden = YES;
+    prerollFullscreenToggle.hidden = YES;
+    publisherVideo.view.hidden = YES;
+    
+    inviewAdContainer.hidden = YES;
 }
 
 #pragma mark - Picker Data Source
@@ -97,6 +157,26 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     return adTypes[row];
 }
 
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if([adTypes[row] isEqualToString:@"Preroll"]) {
+        prerollFullscreenPrompt.hidden = NO;
+        prerollFullscreenToggle.hidden = NO;
+        publisherVideo.view.hidden = NO;
+        [publisherVideo.player play];
+    } else {
+        prerollFullscreenPrompt.hidden = YES;
+        prerollFullscreenToggle.hidden = YES;
+        [publisherVideo.player pause];
+        publisherVideo.view.hidden = YES;
+    }
+    
+    if([adTypes[row] isEqualToString:@"Inview"]) {
+        inviewAdContainer.hidden = NO;
+    } else {
+        inviewAdContainer.hidden = YES;
+    }
+}
+
 #pragma mark - Publisher content
 
 -(NSURL *)sampleContentVideo {
@@ -107,6 +187,12 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
 - (void)mainContentDone:(NSNotification *)notification {
     AVPlayerItem *p = [notification object];
     [p seekToTime:kCMTimeZero];
+}
+
+#pragma mark - button actions
+
+-(void)loadSelectedAdType:(id)sender {
+    
 }
 
 @end
