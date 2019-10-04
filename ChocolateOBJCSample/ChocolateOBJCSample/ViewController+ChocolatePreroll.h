@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ViewController (ChocolatePreroll) <ChocolatePlatformPrerollAdDelegate>
 
+-(void)loadPrerollAd;
+-(void)showPrerollAd;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@import AVKit;
 
 @interface ViewController : UIViewController {
     NSString *appName; //for logging
     NSMutableArray<NSNumber *> *adTypeLoadedStates;
+    UIView *inviewAdContainer;
+    
+    AVPlayerViewController *publisherVideo;
+    UISwitch *prerollFullscreenToggle;
+
 }
 
 -(void)adjustUIForAdState;

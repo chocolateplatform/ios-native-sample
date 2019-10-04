@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-@import AVKit;
 #import "ViewController+ChocolateInterstitial.h"
 #import "ViewController+ChocolateReward.h"
 #import "ViewController+ChocolateInview.h"
@@ -22,12 +21,8 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     
     UIButton *loadButton, *showButton;
     UILabel *prerollFullscreenPrompt;
-    UISwitch *prerollFullscreenToggle;
     
-    UIView *inviewAdContainer;
     UILabel *inviewAdPrompt;
-    
-    AVPlayerViewController *publisherVideo;
 }
 
 @end
@@ -207,6 +202,10 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
         [self loadInterstitialAd];
     } else if([adType isEqualToString:@"Rewarded"]) {
         [self loadRewardAd];
+    } else if([adType isEqualToString:@"Inview"]) {
+        [self loadInviewAd];
+    } else if([adType isEqualToString:@"Preroll"]) {
+        [self loadPrerollAd];
     }
 }
 
@@ -217,6 +216,10 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
         [self showInterstitialAd];
     } else if([adType isEqualToString:@"Rewarded"]) {
         [self showRewardAd];
+    }else if([adType isEqualToString:@"Inview"]) {
+        [self showInviewAd];
+    } else if([adType isEqualToString:@"Preroll"]) {
+        [self showPrerollAd];
     }
 }
 
