@@ -81,8 +81,6 @@ static UIViewController *fullscreenAdContainer = nil;
     } else {
         [publisherVideo.player play];
     }
-    
-    
 }
 
 @end

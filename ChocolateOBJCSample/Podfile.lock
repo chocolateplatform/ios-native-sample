@@ -1,7 +1,7 @@
 PODS:
   - AdColony (3.3.8.1)
   - AmazonAd (2.2.15.1)
-  - AppLovinSDK (6.9.3)
+  - AppLovinSDK (6.9.4)
   - ChocolatePlatform-Mediation-Baidu (1.0.6)
   - ChocolatePlatform-SDK-AdColony (2.3.1):
     - AdColony (~> 3.3)
@@ -43,7 +43,7 @@ PODS:
     - VungleSDK-iOS (~> 6.2.0)
   - FBAudienceNetwork (5.5.1):
     - FBSDKCoreKit/Basics (>= 5.2.1)
-  - FBSDKCoreKit/Basics (5.6.0)
+  - FBSDKCoreKit/Basics (5.7.0)
   - Flurry-iOS-SDK/FlurryAds (8.5.0):
     - Flurry-iOS-SDK/FlurrySDK
   - Flurry-iOS-SDK/FlurrySDK (8.5.0)
@@ -69,6 +69,7 @@ DEPENDENCIES:
   - ChocolatePlatform-SDK-Amazon (~> 1.0)
   - ChocolatePlatform-SDK-AppLovin (~> 2.0)
   - ChocolatePlatform-SDK-Baidu (~> 2.0)
+  - ChocolatePlatform-SDK-Core (~> 2.11.2)
   - ChocolatePlatform-SDK-Facebook (~> 2.0)
   - ChocolatePlatform-SDK-Flurry (~> 2.0)
   - ChocolatePlatform-SDK-Google (~> 2.3)
@@ -110,7 +111,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AdColony: 21c9cdcc780854d406e213cb1e5ef9f2b165cca3
   AmazonAd: 9b7226322bc124343d279a98c28cdae26c48a0e7
-  AppLovinSDK: 7be93822aa576c078e7ed49f509d77a75d9257e6
+  AppLovinSDK: baafed6b1ef2ff01bf8cf920ddf92a4e208bcdb2
   ChocolatePlatform-Mediation-Baidu: 18102d0084a8223cd5c8502fbac73e2ede8eb0bd
   ChocolatePlatform-SDK-AdColony: e56aa784bb61481f4d25c0f3b32f98a69913edc6
   ChocolatePlatform-SDK-Amazon: 0a68cd9e0e7519bcdd6bc478fe9382f017dea4e9
@@ -126,7 +127,7 @@ SPEC CHECKSUMS:
   ChocolatePlatform-SDK-Unity: 93160525006ac5a3f1962c787c47ca4162eabc72
   ChocolatePlatform-SDK-Vungle: 25b132ad8d74656a9758b4867c5c87f29ba1690e
   FBAudienceNetwork: 783ff4808b0b59d0eb294dd94eb251f46e0ce5c9
-  FBSDKCoreKit: d6655a343868d4bb5c29a60859bab07c3be14a0b
+  FBSDKCoreKit: 0d2d450fe9447e204fa6e912e0df76dd36693699
   Flurry-iOS-SDK: d3bf60cf6be3a9d95d98c144bd17210dfa669116
   Google-Mobile-Ads-SDK: 5bb4d2cea811842e104a24780caef63b4808e1bd
   GoogleAds-IMA-iOS-SDK: 0e37ab83b22075ad631a70dcba9528cb246c92bf
@@ -135,6 +136,6 @@ SPEC CHECKSUMS:
   UnityAds: 7ff4f1f17ab02b50f92646a353db25d23a4694af
   VungleSDK-iOS: a8665f4e826ad688135429f4618df4235f8738c7
 
-PODFILE CHECKSUM: a35884b099b48ca48cf7c5b6729a1f4dd7c9b9ee
+PODFILE CHECKSUM: a209e263c31232cd29e2c41c6ca81a59e5dbd92c
 
 COCOAPODS: 1.7.5
