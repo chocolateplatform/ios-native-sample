@@ -17,6 +17,7 @@
 		DF531A6923469AE1000386A4 /* ViewController+ChocolateReward.m in Sources */ = {isa = PBXBuildFile; fileRef = DF531A6823469AE1000386A4 /* ViewController+ChocolateReward.m */; };
 		DF531A6C23469AF3000386A4 /* ViewController+ChocolateInview.m in Sources */ = {isa = PBXBuildFile; fileRef = DF531A6B23469AF3000386A4 /* ViewController+ChocolateInview.m */; };
 		DF531A6F23469B08000386A4 /* ViewController+ChocolatePreroll.m in Sources */ = {isa = PBXBuildFile; fileRef = DF531A6E23469B08000386A4 /* ViewController+ChocolatePreroll.m */; };
+		DFAD7376234D197600424DD6 /* PartnerSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAD7375234D197600424DD6 /* PartnerSelectionTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		DF531A6B23469AF3000386A4 /* ViewController+ChocolateInview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController+ChocolateInview.m"; sourceTree = "<group>"; };
 		DF531A6D23469B08000386A4 /* ViewController+ChocolatePreroll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewController+ChocolatePreroll.h"; sourceTree = "<group>"; };
 		DF531A6E23469B08000386A4 /* ViewController+ChocolatePreroll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController+ChocolatePreroll.m"; sourceTree = "<group>"; };
+		DFAD7374234D197600424DD6 /* PartnerSelectionTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PartnerSelectionTableViewController.h; sourceTree = "<group>"; };
+		DFAD7375234D197600424DD6 /* PartnerSelectionTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PartnerSelectionTableViewController.m; sourceTree = "<group>"; };
 		EA49F4650BF88DD897AD9802 /* Pods-ChocolateOBJCSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocolateOBJCSample.release.xcconfig"; path = "Target Support Files/Pods-ChocolateOBJCSample/Pods-ChocolateOBJCSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +113,8 @@
 				DF531A5723429E73000386A4 /* Info.plist */,
 				DF531A5823429E73000386A4 /* main.m */,
 				DF531A632343F1C7000386A4 /* bunny.mp4 */,
+				DFAD7374234D197600424DD6 /* PartnerSelectionTableViewController.h */,
+				DFAD7375234D197600424DD6 /* PartnerSelectionTableViewController.m */,
 			);
 			path = ChocolateOBJCSample;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF531A6923469AE1000386A4 /* ViewController+ChocolateReward.m in Sources */,
+				DFAD7376234D197600424DD6 /* PartnerSelectionTableViewController.m in Sources */,
 				DF531A4E23429E72000386A4 /* ViewController.m in Sources */,
 				DF531A6C23469AF3000386A4 /* ViewController+ChocolateInview.m in Sources */,
 				DF531A6623468CDF000386A4 /* ViewController+ChocolateInterstitial.m in Sources */,

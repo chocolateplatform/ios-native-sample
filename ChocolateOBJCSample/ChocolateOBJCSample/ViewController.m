@@ -11,6 +11,7 @@
 #import "ViewController+ChocolateReward.h"
 #import "ViewController+ChocolateInview.h"
 #import "ViewController+ChocolatePreroll.h"
+#import "PartnerSelectionTableViewController.h"
 
 static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4";
 
@@ -23,6 +24,9 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     UILabel *prerollFullscreenPrompt;
     
     UILabel *inviewAdPrompt;
+    
+    UILabel *partnerSelectionPrompt;
+    UISwitch *partnerSelectionToggle;
 }
 
 @end
@@ -60,6 +64,23 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     adTypePicker.translatesAutoresizingMaskIntoConstraints = NO;
     [adTypePicker.centerYAnchor constraintEqualToAnchor:prompt.centerYAnchor].active = YES;
     [adTypePicker.leftAnchor constraintEqualToAnchor:prompt.rightAnchor constant:20].active = YES;
+    
+    partnerSelectionPrompt = [[UILabel alloc] init];
+    partnerSelectionPrompt.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    partnerSelectionPrompt.text = @"Choose Partner";
+    [partnerSelectionPrompt sizeToFit];
+    [self.view addSubview:partnerSelectionPrompt];
+    partnerSelectionPrompt.translatesAutoresizingMaskIntoConstraints = NO;
+    [partnerSelectionPrompt.topAnchor constraintEqualToAnchor:prompt.bottomAnchor constant:20].active = YES;
+    [partnerSelectionPrompt.leadingAnchor constraintEqualToAnchor:prompt.leadingAnchor ].active = YES;
+    
+    partnerSelectionToggle = [[UISwitch alloc] init];
+    [self.view addSubview:partnerSelectionToggle];
+    partnerSelectionToggle.translatesAutoresizingMaskIntoConstraints = NO;
+    [partnerSelectionToggle.centerYAnchor constraintEqualToAnchor:partnerSelectionPrompt.centerYAnchor].active = YES;
+    [partnerSelectionToggle.leadingAnchor constraintEqualToAnchor:partnerSelectionPrompt.trailingAnchor constant:10].active = YES;
+    
+    
     
     publisherVideo = [[AVPlayerViewController alloc] init];
     publisherVideo.player = [AVPlayer playerWithURL:[self sampleContentVideo]];
@@ -141,6 +162,8 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     publisherVideo.view.hidden = YES;
     
     inviewAdContainer.hidden = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(partnersSelected:) name:ChocolateSelectedNotification object:nil];
 }
 
 #pragma mark - Picker Data Source
@@ -198,6 +221,20 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
 -(void)loadSelectedAdType:(id)sender {
     NSString *adType = adTypes[[adTypePicker selectedRowInComponent:0]];
     
+    if(partnerSelectionToggle.on) {
+        [self.navigationController pushViewController:[[PartnerSelectionTableViewController alloc] initWithAdType:adType] animated:YES];
+    } else {
+        [ChocolatePlatform performSelector:NSSelectorFromString(@"addSelectedPartner:") withObject:@[]];
+        [self callSDKLoad:adType];
+    }
+}
+
+-(void)partnersSelected:(NSNotification *)not {
+    [ChocolatePlatform performSelector:NSSelectorFromString(@"addSelectedPartner:") withObject:[not object]];
+    [self callSDKLoad:adTypes[[adTypePicker selectedRowInComponent:0]]];
+}
+
+-(void)callSDKLoad:(NSString *)adType {
     if([adType isEqualToString:@"Interstitial"]) {
         [self loadInterstitialAd];
     } else if([adType isEqualToString:@"Rewarded"]) {
