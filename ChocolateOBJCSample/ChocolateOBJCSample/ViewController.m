@@ -7,10 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ViewController+ChocolateInterstitial.h"
-#import "ViewController+ChocolateReward.h"
-#import "ViewController+ChocolateInview.h"
-#import "ViewController+ChocolatePreroll.h"
+#import "ViewController+ChocolateAd.h"
 #import "PartnerSelectionTableViewController.h"
 
 static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4";
@@ -36,9 +33,9 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
 - (void)viewDidLoad {
     [super viewDidLoad];
     appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
-    adTypeLoadedStates = [@[@NO,@NO,@NO,@NO] mutableCopy];
+    adTypeLoadedStates = [@[@NO,@NO,@NO,@NO,@NO] mutableCopy];
     
-    adTypes = @[@"Interstitial", @"Rewarded", @"Inview", @"Preroll"];
+    adTypes = @[@"Interstitial", @"Rewarded", @"Banner", @"Preroll", @"Small Banner"];
     
     // Do any additional setup after loading the view.
     self.view.backgroundColor = UIColor.whiteColor;
@@ -173,7 +170,7 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 4;
+    return 5;
 }
 
 #pragma mark - Picker Delegate
@@ -195,7 +192,8 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
         publisherVideo.view.hidden = YES;
     }
     
-    if([adTypes[row] isEqualToString:@"Inview"]) {
+    if([adTypes[row] isEqualToString:@"Banner"] ||
+       [adTypes[row] isEqualToString:@"Small Banner"]) {
         inviewAdContainer.hidden = NO;
     } else {
         inviewAdContainer.hidden = YES;
@@ -239,10 +237,12 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
         [self loadInterstitialAd];
     } else if([adType isEqualToString:@"Rewarded"]) {
         [self loadRewardAd];
-    } else if([adType isEqualToString:@"Inview"]) {
-        [self loadInviewAd];
+    } else if([adType isEqualToString:@"Banner"]) {
+        [self loadBannerAd];
     } else if([adType isEqualToString:@"Preroll"]) {
         [self loadPrerollAd];
+    } else if([adType isEqualToString:@"Small Banner"]) {
+        [self loadSmallBannerAd];
     }
 }
 
@@ -253,10 +253,12 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
         [self showInterstitialAd];
     } else if([adType isEqualToString:@"Rewarded"]) {
         [self showRewardAd];
-    }else if([adType isEqualToString:@"Inview"]) {
-        [self showInviewAd];
+    }else if([adType isEqualToString:@"Banner"]) {
+        [self showBannerAd];
     } else if([adType isEqualToString:@"Preroll"]) {
         [self showPrerollAd];
+    } else if([adType isEqualToString:@"Small Banner"]) {
+        [self showSmallBannerAd];
     }
 }
 

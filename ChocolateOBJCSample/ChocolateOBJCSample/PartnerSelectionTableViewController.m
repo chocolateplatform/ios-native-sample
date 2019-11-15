@@ -7,10 +7,10 @@
 //
 
 #import "PartnerSelectionTableViewController.h"
+#import "PartnerChoice.h"
 
 @interface PartnerSelectionTableViewController () {
-    NSArray *partnerList;
-    NSInteger chosenPartnerIndex;
+    NSArray<PartnerChoice *> *partnerList;
 }
 
 @end
@@ -23,54 +23,58 @@
     return self;
 }
 
--(NSArray *)partnerListForAdType:(NSString *)adType {
+-(NSArray<PartnerChoice *> *)partnerListForAdType:(NSString *)adType {
     if([adType isEqualToString:@"Interstitial"]) {
         return @[
-            @"Chocolate",
-            @"AdColony",
-            @"Baidu",
-            @"GoogleAdmob",
-            @"Unity",
-            @"AppLovin",
-            @"Facebook",
-            @"Inmobi",
-            @"Mopub",
-            @"Vungle",
-            @"Amazon"
+            [[PartnerChoice alloc] initWithName:@"All" andSelected:YES],
+            [[PartnerChoice alloc] initWithName:@"Chocolate"],
+            [[PartnerChoice alloc] initWithName:@"AdColony"],
+            [[PartnerChoice alloc] initWithName:@"Baidu"],
+            [[PartnerChoice alloc] initWithName:@"GoogleAdmob"],
+            [[PartnerChoice alloc] initWithName:@"Unity"],
+            [[PartnerChoice alloc] initWithName:@"AppLovin"],
+            [[PartnerChoice alloc] initWithName:@"Facebook"],
+            [[PartnerChoice alloc] initWithName:@"Inmobi"],
+            [[PartnerChoice alloc] initWithName:@"Mopub"],
+            [[PartnerChoice alloc] initWithName:@"Vungle"],
+            [[PartnerChoice alloc] initWithName:@"Amazon"]
         ];
     } else if([adType isEqualToString:@"Rewarded"]) {
         return @[
-            @"Auction",
-            @"Chocolate",
-            @"Vungle",
-            @"AdColony",
-            @"GoogleAdmob",
-            @"Unity",
-            @"AppLovin",
-            @"Facebook",
-            @"Inmobi",
-            @"Tapjoy",
-            @"Mopub",
-            @"Amazon"
+            [[PartnerChoice alloc] initWithName:@"All" andSelected:YES],
+            [[PartnerChoice alloc] initWithName:@"Auction"],
+            [[PartnerChoice alloc] initWithName:@"Chocolate"],
+            [[PartnerChoice alloc] initWithName:@"Vungle"],
+            [[PartnerChoice alloc] initWithName:@"AdColony"],
+            [[PartnerChoice alloc] initWithName:@"GoogleAdmob"],
+            [[PartnerChoice alloc] initWithName:@"Unity"],
+            [[PartnerChoice alloc] initWithName:@"AppLovin"],
+            [[PartnerChoice alloc] initWithName:@"Facebook"],
+            [[PartnerChoice alloc] initWithName:@"Inmobi"],
+            [[PartnerChoice alloc] initWithName:@"Tapjoy"],
+            [[PartnerChoice alloc] initWithName:@"Mopub"],
+            [[PartnerChoice alloc] initWithName:@"Amazon"]
         ];
-    } else if([adType isEqualToString:@"Inview"]) {
+    } else if([adType isEqualToString:@"Banner"]) {
         return @[
-            @"Chocolate",
-            @"AdColony",
-            @"Baidu",
-            @"AppLovin",
-            @"Facebook",
-            @"GoogleAdmob",
-            @"Inmobi",
-            @"Mopub",
-            @"Yahoo",
-            @"Amazon"
+            [[PartnerChoice alloc] initWithName:@"All" andSelected:YES],
+            [[PartnerChoice alloc] initWithName:@"Chocolate"],
+            [[PartnerChoice alloc] initWithName:@"AdColony"],
+            [[PartnerChoice alloc] initWithName:@"Baidu"],
+            [[PartnerChoice alloc] initWithName:@"AppLovin"],
+            [[PartnerChoice alloc] initWithName:@"Facebook"],
+            [[PartnerChoice alloc] initWithName:@"GoogleAdmob"],
+            [[PartnerChoice alloc] initWithName:@"Inmobi"],
+            [[PartnerChoice alloc] initWithName:@"Mopub"],
+            [[PartnerChoice alloc] initWithName:@"Yahoo"],
+            [[PartnerChoice alloc] initWithName:@"Amazon"]
         ];
     } else if([adType isEqualToString:@"Preroll"]) {
         return @[
-            @"Chocolate",
-            @"Google",
-            @"Amazon"
+            [[PartnerChoice alloc] initWithName:@"All" andSelected:YES],
+            [[PartnerChoice alloc] initWithName:@"Chocolate"],
+            [[PartnerChoice alloc] initWithName:@"Google"],
+            [[PartnerChoice alloc] initWithName:@"Amazon"]
         ];
     }
     
@@ -102,19 +106,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return partnerList.count + 1;
+    return partnerList.count;
 }
 
 //*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"partnerCell" forIndexPath:indexPath];
     //
-    if(indexPath.row == 0) {
-        cell.textLabel.text = @"All";
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.textLabel.text = partnerList[indexPath.row-1];
-    }
+    PartnerChoice *pc = partnerList[indexPath.row];
+    cell.textLabel.text = pc.name;
+    cell.accessoryType = pc.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
     return cell;
 }
@@ -123,12 +124,28 @@
 #pragma mark - UITableViewDelegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [[tableView visibleCells] enumerateObjectsUsingBlock:^(__kindof UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.accessoryType = UITableViewCellAccessoryNone;
-    }];
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    PartnerChoice *pc = partnerList[indexPath.row];
+    if([pc.name isEqualToString:@"All"]) {
+        for(int i = 1; i < partnerList.count; i++) {
+            partnerList[i].selected = NO;
+        }
+        pc.selected = YES;
+    } else {
+        partnerList[0].selected = NO;
+        pc.selected = !pc.selected;
+    }
+    
+    for(int i = 0; i < [tableView numberOfRowsInSection:0]; i++){
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        cell.accessoryType = partnerList[i].selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    }
+//
+//    [[tableView visibleCells] enumerateObjectsUsingBlock:^(__kindof UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        obj.accessoryType = UITableViewCellAccessoryNone;
+//    }];
+//    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    chosenPartnerIndex = indexPath.row;
+//    chosenPartnerIndex = indexPath.row;
 }
 
 #pragma mark - sending selected partner info on exit
@@ -141,7 +158,17 @@
 }
 
 -(NSArray *)extractChosenPartners {
-    return chosenPartnerIndex == 0 ? @[@"all"] : @[[partnerList[chosenPartnerIndex-1] lowercaseString]];
+    if(partnerList[0].selected) {
+        return @[@"all"];
+    }
+    
+    NSMutableArray *res = [[NSMutableArray alloc] init];
+    [partnerList enumerateObjectsUsingBlock:^(PartnerChoice * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(obj.selected) {
+            [res addObject:[obj.name lowercaseString]];
+        }
+    }];
+    return res;
 }
 
 /*
