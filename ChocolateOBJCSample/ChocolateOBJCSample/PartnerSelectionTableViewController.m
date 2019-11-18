@@ -37,7 +37,8 @@
             [[PartnerChoice alloc] initWithName:@"Inmobi"],
             [[PartnerChoice alloc] initWithName:@"Mopub"],
             [[PartnerChoice alloc] initWithName:@"Vungle"],
-            [[PartnerChoice alloc] initWithName:@"Amazon"]
+            [[PartnerChoice alloc] initWithName:@"Amazon"],
+            [[PartnerChoice alloc] initWithName:@"Criteo"]
         ];
     } else if([adType isEqualToString:@"Rewarded"]) {
         return @[
@@ -53,7 +54,8 @@
             [[PartnerChoice alloc] initWithName:@"Inmobi"],
             [[PartnerChoice alloc] initWithName:@"Tapjoy"],
             [[PartnerChoice alloc] initWithName:@"Mopub"],
-            [[PartnerChoice alloc] initWithName:@"Amazon"]
+            [[PartnerChoice alloc] initWithName:@"Amazon"],
+            [[PartnerChoice alloc] initWithName:@"Criteo"]
         ];
     } else if([adType isEqualToString:@"Banner"]) {
         return @[
@@ -67,7 +69,8 @@
             [[PartnerChoice alloc] initWithName:@"Inmobi"],
             [[PartnerChoice alloc] initWithName:@"Mopub"],
             [[PartnerChoice alloc] initWithName:@"Yahoo"],
-            [[PartnerChoice alloc] initWithName:@"Amazon"]
+            [[PartnerChoice alloc] initWithName:@"Amazon"],
+            [[PartnerChoice alloc] initWithName:@"Criteo"]
         ];
     } else if([adType isEqualToString:@"Preroll"]) {
         return @[
@@ -75,6 +78,13 @@
             [[PartnerChoice alloc] initWithName:@"Chocolate"],
             [[PartnerChoice alloc] initWithName:@"Google"],
             [[PartnerChoice alloc] initWithName:@"Amazon"]
+        ];
+    } else if([adType isEqualToString:@"Small Banner"]) {
+        return @[
+            [[PartnerChoice alloc] initWithName:@"All" andSelected:YES],
+            [[PartnerChoice alloc] initWithName:@"GoogleAdmob"],
+            [[PartnerChoice alloc] initWithName:@"Amazon"],
+            [[PartnerChoice alloc] initWithName:@"Criteo"]
         ];
     }
     
@@ -88,11 +98,6 @@
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"partnerCell"];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(closeAndExit)];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void)closeAndExit {

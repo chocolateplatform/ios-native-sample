@@ -16,6 +16,9 @@ PODS:
     - ChocolatePlatform-Mediation-Baidu (~> 1.0.6)
     - ChocolatePlatform-SDK-Core (~> 3.0)
   - ChocolatePlatform-SDK-Core (3.0.1)
+  - ChocolatePlatform-SDK-Criteo (1.0.0):
+    - ChocolatePlatform-SDK-Core (~> 3.0)
+    - CriteoPublisherSdk (~> 3.2)
   - ChocolatePlatform-SDK-Facebook (3.0.1):
     - ChocolatePlatform-SDK-Core (~> 3.0)
     - FBAudienceNetwork (~> 5.3)
@@ -41,9 +44,10 @@ PODS:
   - ChocolatePlatform-SDK-Vungle (3.0.1):
     - ChocolatePlatform-SDK-Core (~> 3.0)
     - VungleSDK-iOS (~> 6.2.0)
+  - CriteoPublisherSdk (3.2.0)
   - FBAudienceNetwork (5.6.0):
     - FBSDKCoreKit/Basics (>= 5.6.0)
-  - FBSDKCoreKit/Basics (5.10.1)
+  - FBSDKCoreKit/Basics (5.11.0)
   - Flurry-iOS-SDK/FlurryAds (8.5.0):
     - Flurry-iOS-SDK/FlurrySDK
   - Flurry-iOS-SDK/FlurrySDK (8.5.0)
@@ -70,6 +74,7 @@ DEPENDENCIES:
   - ChocolatePlatform-SDK-AppLovin (~> 3.0)
   - ChocolatePlatform-SDK-Baidu (~> 3.0)
   - ChocolatePlatform-SDK-Core (~> 3.0)
+  - ChocolatePlatform-SDK-Criteo (~> 1.0)
   - ChocolatePlatform-SDK-Facebook (~> 3.0)
   - ChocolatePlatform-SDK-Flurry (~> 3.0)
   - ChocolatePlatform-SDK-Google (~> 3.0)
@@ -90,6 +95,7 @@ SPEC REPOS:
     - ChocolatePlatform-SDK-AppLovin
     - ChocolatePlatform-SDK-Baidu
     - ChocolatePlatform-SDK-Core
+    - ChocolatePlatform-SDK-Criteo
     - ChocolatePlatform-SDK-Facebook
     - ChocolatePlatform-SDK-Flurry
     - ChocolatePlatform-SDK-Google
@@ -98,6 +104,7 @@ SPEC REPOS:
     - ChocolatePlatform-SDK-Tapjoy
     - ChocolatePlatform-SDK-Unity
     - ChocolatePlatform-SDK-Vungle
+    - CriteoPublisherSdk
     - FBAudienceNetwork
     - FBSDKCoreKit
     - Flurry-iOS-SDK
@@ -118,6 +125,7 @@ SPEC CHECKSUMS:
   ChocolatePlatform-SDK-AppLovin: c5205c61f3663d06cc5b29c439fb8d8540c140ac
   ChocolatePlatform-SDK-Baidu: 75aa30f7ca9cd93e38151dd1f06d17d5bf28eba9
   ChocolatePlatform-SDK-Core: 568d8442d8a5fa5f959b013920757b23eebd2ef5
+  ChocolatePlatform-SDK-Criteo: 8b00fb1cc6735aea65f1aa5fd34021b8bd8b6b43
   ChocolatePlatform-SDK-Facebook: d009928285814d9ea634cb4dba6bed1650fd134c
   ChocolatePlatform-SDK-Flurry: 8ef6e44828b0aeada72ef59d1c0dd6dfcfeadb5b
   ChocolatePlatform-SDK-Google: c4cbdb21f61a911a9c9872ee3c4ae17eee9a6b71
@@ -126,8 +134,9 @@ SPEC CHECKSUMS:
   ChocolatePlatform-SDK-Tapjoy: 34aabc222b9f46d64243a848f32c4eca1284c41f
   ChocolatePlatform-SDK-Unity: c12f34189836a28fb765fbf858485807bcc082ba
   ChocolatePlatform-SDK-Vungle: 743c60f31a3480b0169ac78a6349176ddae49a90
+  CriteoPublisherSdk: 4697cb44768aa99aa0347d920826a1d24a9e044f
   FBAudienceNetwork: 1ea63543665445a3a5b4a059e8210a343b6ab3c1
-  FBSDKCoreKit: aa8887f21898ac5bcf07bef4fb253aa41c91be04
+  FBSDKCoreKit: 9fbfb5b0022d34861bfa6b79f56f8e2ddcd8170b
   Flurry-iOS-SDK: d3bf60cf6be3a9d95d98c144bd17210dfa669116
   Google-Mobile-Ads-SDK: 5bb4d2cea811842e104a24780caef63b4808e1bd
   GoogleAds-IMA-iOS-SDK: 0e37ab83b22075ad631a70dcba9528cb246c92bf
@@ -136,6 +145,6 @@ SPEC CHECKSUMS:
   UnityAds: 7ff4f1f17ab02b50f92646a353db25d23a4694af
   VungleSDK-iOS: a8665f4e826ad688135429f4618df4235f8738c7
 
-PODFILE CHECKSUM: ed29653bc2559ab04522ea0c0f63f80fa50c115c
+PODFILE CHECKSUM: 7320f717cf8668aeea3216719ede07bc36b4129d
 
 COCOAPODS: 1.8.4

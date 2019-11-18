@@ -17,4 +17,5 @@ target 'ChocolateOBJCSample' do
   pod 'ChocolatePlatform-SDK-Vungle', '~> 3.0'
   pod 'ChocolatePlatform-SDK-Amazon', '~> 2.0'
   pod 'ChocolatePlatform-SDK-Google', '~> 3.0'
+  pod 'ChocolatePlatform-SDK-Criteo', '~> 1.0'
 end
