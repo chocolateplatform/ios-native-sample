@@ -29,13 +29,9 @@
             [[PartnerChoice alloc] initWithName:@"All" andSelected:YES],
             [[PartnerChoice alloc] initWithName:@"Chocolate"],
             [[PartnerChoice alloc] initWithName:@"AdColony"],
-            [[PartnerChoice alloc] initWithName:@"Baidu"],
             [[PartnerChoice alloc] initWithName:@"GoogleAdmob"],
             [[PartnerChoice alloc] initWithName:@"Unity"],
             [[PartnerChoice alloc] initWithName:@"AppLovin"],
-            [[PartnerChoice alloc] initWithName:@"Facebook"],
-            [[PartnerChoice alloc] initWithName:@"Inmobi"],
-            [[PartnerChoice alloc] initWithName:@"Mopub"],
             [[PartnerChoice alloc] initWithName:@"Vungle"],
             [[PartnerChoice alloc] initWithName:@"Amazon"],
             [[PartnerChoice alloc] initWithName:@"Criteo"]
@@ -50,10 +46,7 @@
             [[PartnerChoice alloc] initWithName:@"GoogleAdmob"],
             [[PartnerChoice alloc] initWithName:@"Unity"],
             [[PartnerChoice alloc] initWithName:@"AppLovin"],
-            [[PartnerChoice alloc] initWithName:@"Facebook"],
-            [[PartnerChoice alloc] initWithName:@"Inmobi"],
             [[PartnerChoice alloc] initWithName:@"Tapjoy"],
-            [[PartnerChoice alloc] initWithName:@"Mopub"],
             [[PartnerChoice alloc] initWithName:@"Amazon"],
             [[PartnerChoice alloc] initWithName:@"Criteo"]
         ];
@@ -62,12 +55,8 @@
             [[PartnerChoice alloc] initWithName:@"All" andSelected:YES],
             [[PartnerChoice alloc] initWithName:@"Chocolate"],
             [[PartnerChoice alloc] initWithName:@"AdColony"],
-            [[PartnerChoice alloc] initWithName:@"Baidu"],
             [[PartnerChoice alloc] initWithName:@"AppLovin"],
-            [[PartnerChoice alloc] initWithName:@"Facebook"],
             [[PartnerChoice alloc] initWithName:@"GoogleAdmob"],
-            [[PartnerChoice alloc] initWithName:@"Inmobi"],
-            [[PartnerChoice alloc] initWithName:@"Mopub"],
             [[PartnerChoice alloc] initWithName:@"Yahoo"],
             [[PartnerChoice alloc] initWithName:@"Amazon"],
             [[PartnerChoice alloc] initWithName:@"Criteo"]
