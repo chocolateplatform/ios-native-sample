@@ -9,7 +9,7 @@ target 'ChocolateOBJCSample' do
   pod 'ChocolatePlatform-SDK-AppLovin', '~> 3.0'
   pod 'ChocolatePlatform-SDK-Googleadmob', '~> 2.0'
   pod 'ChocolatePlatform-SDK-Tapjoy', '~> 3.0'
-  pod 'ChocolatePlatform-SDK-Unity', '~> 3.0'
+  pod 'ChocolatePlatform-SDK-Unity', '~> 4.0'
   pod 'ChocolatePlatform-SDK-Vungle', '~> 3.0'
   pod 'ChocolatePlatform-SDK-Amazon', '~> 2.0'
   pod 'ChocolatePlatform-SDK-Google', '~> 3.0'

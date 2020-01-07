@@ -2,7 +2,6 @@ PODS:
   - AdColony (3.3.8.1)
   - AmazonAd (2.2.15.1)
   - AppLovinSDK (6.9.5)
-  - ChocolatePlatform-Mediation-Baidu (1.0.6)
   - ChocolatePlatform-SDK-AdColony (3.0.1):
     - AdColony (~> 3.3)
     - ChocolatePlatform-SDK-Core (~> 3.0)
@@ -12,76 +11,42 @@ PODS:
   - ChocolatePlatform-SDK-AppLovin (3.0.2):
     - AppLovinSDK (~> 6.9.0)
     - ChocolatePlatform-SDK-Core (~> 3.0)
-  - ChocolatePlatform-SDK-Baidu (3.0.1):
-    - ChocolatePlatform-Mediation-Baidu (~> 1.0.6)
-    - ChocolatePlatform-SDK-Core (~> 3.0)
   - ChocolatePlatform-SDK-Core (3.0.1)
   - ChocolatePlatform-SDK-Criteo (1.0.0):
     - ChocolatePlatform-SDK-Core (~> 3.0)
     - CriteoPublisherSdk (~> 3.2)
-  - ChocolatePlatform-SDK-Facebook (3.0.1):
-    - ChocolatePlatform-SDK-Core (~> 3.0)
-    - FBAudienceNetwork (~> 5.3)
-  - ChocolatePlatform-SDK-Flurry (3.0.1):
-    - ChocolatePlatform-SDK-Core (~> 3.0)
-    - Flurry-iOS-SDK/FlurryAds (~> 8.5.0)
-    - Flurry-iOS-SDK/FlurrySDK (~> 8.5.0)
   - ChocolatePlatform-SDK-Google (3.0.1):
     - ChocolatePlatform-SDK-Core (~> 3.0)
     - GoogleAds-IMA-iOS-SDK (~> 3.6)
   - ChocolatePlatform-SDK-Googleadmob (2.0.1):
     - ChocolatePlatform-SDK-Core (~> 3.0)
     - Google-Mobile-Ads-SDK (= 7.36.0)
-  - ChocolatePlatform-SDK-Mopub (3.0.1):
-    - ChocolatePlatform-SDK-Core (~> 3.0)
-    - mopub-ios-sdk (~> 5.5)
   - ChocolatePlatform-SDK-Tapjoy (3.0.1):
     - ChocolatePlatform-SDK-Core (~> 3.0)
     - TapjoySDK (~> 11.10.2)
-  - ChocolatePlatform-SDK-Unity (3.0.1):
+  - ChocolatePlatform-SDK-Unity (4.0.1):
     - ChocolatePlatform-SDK-Core (~> 3.0)
-    - UnityAds (~> 2.1.0)
+    - UnityAds (~> 3.3.0)
   - ChocolatePlatform-SDK-Vungle (3.0.1):
     - ChocolatePlatform-SDK-Core (~> 3.0)
     - VungleSDK-iOS (~> 6.2.0)
   - CriteoPublisherSdk (3.2.0)
-  - FBAudienceNetwork (5.6.0):
-    - FBSDKCoreKit/Basics (>= 5.6.0)
-  - FBSDKCoreKit/Basics (5.11.0)
-  - Flurry-iOS-SDK/FlurryAds (8.5.0):
-    - Flurry-iOS-SDK/FlurrySDK
-  - Flurry-iOS-SDK/FlurrySDK (8.5.0)
   - Google-Mobile-Ads-SDK (7.36.0)
   - GoogleAds-IMA-iOS-SDK (3.10.1)
-  - mopub-ios-sdk (5.10.0):
-    - mopub-ios-sdk/MoPubSDK (= 5.10.0)
-  - mopub-ios-sdk/Avid (5.10.0):
-    - mopub-ios-sdk/Core
-  - mopub-ios-sdk/Core (5.10.0)
-  - mopub-ios-sdk/Moat (5.10.0):
-    - mopub-ios-sdk/Core
-  - mopub-ios-sdk/MoPubSDK (5.10.0):
-    - mopub-ios-sdk/Avid
-    - mopub-ios-sdk/Core
-    - mopub-ios-sdk/Moat
   - TapjoySDK (11.10.2)
-  - UnityAds (2.1.2)
+  - UnityAds (3.3.0)
   - VungleSDK-iOS (6.2.0)
 
 DEPENDENCIES:
   - ChocolatePlatform-SDK-AdColony (~> 3.0)
   - ChocolatePlatform-SDK-Amazon (~> 2.0)
   - ChocolatePlatform-SDK-AppLovin (~> 3.0)
-  - ChocolatePlatform-SDK-Baidu (~> 3.0)
   - ChocolatePlatform-SDK-Core (~> 3.0)
   - ChocolatePlatform-SDK-Criteo (~> 1.0)
-  - ChocolatePlatform-SDK-Facebook (~> 3.0)
-  - ChocolatePlatform-SDK-Flurry (~> 3.0)
   - ChocolatePlatform-SDK-Google (~> 3.0)
   - ChocolatePlatform-SDK-Googleadmob (~> 2.0)
-  - ChocolatePlatform-SDK-Mopub (~> 3.0)
   - ChocolatePlatform-SDK-Tapjoy (~> 3.0)
-  - ChocolatePlatform-SDK-Unity (~> 3.0)
+  - ChocolatePlatform-SDK-Unity (~> 4.0)
   - ChocolatePlatform-SDK-Vungle (~> 3.0)
 
 SPEC REPOS:
@@ -89,28 +54,19 @@ SPEC REPOS:
     - AdColony
     - AmazonAd
     - AppLovinSDK
-    - ChocolatePlatform-Mediation-Baidu
     - ChocolatePlatform-SDK-AdColony
     - ChocolatePlatform-SDK-Amazon
     - ChocolatePlatform-SDK-AppLovin
-    - ChocolatePlatform-SDK-Baidu
     - ChocolatePlatform-SDK-Core
     - ChocolatePlatform-SDK-Criteo
-    - ChocolatePlatform-SDK-Facebook
-    - ChocolatePlatform-SDK-Flurry
     - ChocolatePlatform-SDK-Google
     - ChocolatePlatform-SDK-Googleadmob
-    - ChocolatePlatform-SDK-Mopub
     - ChocolatePlatform-SDK-Tapjoy
     - ChocolatePlatform-SDK-Unity
     - ChocolatePlatform-SDK-Vungle
     - CriteoPublisherSdk
-    - FBAudienceNetwork
-    - FBSDKCoreKit
-    - Flurry-iOS-SDK
     - Google-Mobile-Ads-SDK
     - GoogleAds-IMA-iOS-SDK
-    - mopub-ios-sdk
     - TapjoySDK
     - UnityAds
     - VungleSDK-iOS
@@ -119,32 +75,23 @@ SPEC CHECKSUMS:
   AdColony: 21c9cdcc780854d406e213cb1e5ef9f2b165cca3
   AmazonAd: 9b7226322bc124343d279a98c28cdae26c48a0e7
   AppLovinSDK: 15268696b789c0954520ca95022fe2453bc41291
-  ChocolatePlatform-Mediation-Baidu: 18102d0084a8223cd5c8502fbac73e2ede8eb0bd
   ChocolatePlatform-SDK-AdColony: ae989cfd74a170497946faad360f641a09aa2810
   ChocolatePlatform-SDK-Amazon: c6f35aa6767ea0f75c44ed33990ed2983df3cf8a
   ChocolatePlatform-SDK-AppLovin: c5205c61f3663d06cc5b29c439fb8d8540c140ac
-  ChocolatePlatform-SDK-Baidu: 75aa30f7ca9cd93e38151dd1f06d17d5bf28eba9
   ChocolatePlatform-SDK-Core: 568d8442d8a5fa5f959b013920757b23eebd2ef5
   ChocolatePlatform-SDK-Criteo: 8b00fb1cc6735aea65f1aa5fd34021b8bd8b6b43
-  ChocolatePlatform-SDK-Facebook: d009928285814d9ea634cb4dba6bed1650fd134c
-  ChocolatePlatform-SDK-Flurry: 8ef6e44828b0aeada72ef59d1c0dd6dfcfeadb5b
   ChocolatePlatform-SDK-Google: c4cbdb21f61a911a9c9872ee3c4ae17eee9a6b71
   ChocolatePlatform-SDK-Googleadmob: 4e46560810180ce7327c150a704343a9a6d8e18e
-  ChocolatePlatform-SDK-Mopub: 5faa22620cc75c43a65847d664bb01974cdab9e5
   ChocolatePlatform-SDK-Tapjoy: 34aabc222b9f46d64243a848f32c4eca1284c41f
-  ChocolatePlatform-SDK-Unity: c12f34189836a28fb765fbf858485807bcc082ba
+  ChocolatePlatform-SDK-Unity: 85e80356365c2ce9264da715b565e435a8b8aee6
   ChocolatePlatform-SDK-Vungle: 743c60f31a3480b0169ac78a6349176ddae49a90
   CriteoPublisherSdk: 4697cb44768aa99aa0347d920826a1d24a9e044f
-  FBAudienceNetwork: 1ea63543665445a3a5b4a059e8210a343b6ab3c1
-  FBSDKCoreKit: 9fbfb5b0022d34861bfa6b79f56f8e2ddcd8170b
-  Flurry-iOS-SDK: d3bf60cf6be3a9d95d98c144bd17210dfa669116
   Google-Mobile-Ads-SDK: 5bb4d2cea811842e104a24780caef63b4808e1bd
   GoogleAds-IMA-iOS-SDK: 0e37ab83b22075ad631a70dcba9528cb246c92bf
-  mopub-ios-sdk: 3d65133b95b6498aa871a66818a11a5ba307e565
   TapjoySDK: e12ca74dc0ff0ef18c252c9035975857ee1e032d
-  UnityAds: 7ff4f1f17ab02b50f92646a353db25d23a4694af
+  UnityAds: 0b7ecf8df83e8a3d62122a3fcf61e47c8e848f3c
   VungleSDK-iOS: a8665f4e826ad688135429f4618df4235f8738c7
 
-PODFILE CHECKSUM: 7320f717cf8668aeea3216719ede07bc36b4129d
+PODFILE CHECKSUM: 6e5b8891e836285cb08fd649ea2cd4ef10dc0373
 
 COCOAPODS: 1.8.4
