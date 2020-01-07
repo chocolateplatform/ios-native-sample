@@ -11,7 +11,7 @@ PODS:
   - ChocolatePlatform-SDK-AppLovin (3.0.2):
     - AppLovinSDK (~> 6.9.0)
     - ChocolatePlatform-SDK-Core (~> 3.0)
-  - ChocolatePlatform-SDK-Core (3.0.1)
+  - ChocolatePlatform-SDK-Core (3.0.4)
   - ChocolatePlatform-SDK-Criteo (1.0.0):
     - ChocolatePlatform-SDK-Core (~> 3.0)
     - CriteoPublisherSdk (~> 3.2)
@@ -32,7 +32,7 @@ PODS:
     - VungleSDK-iOS (~> 6.2.0)
   - CriteoPublisherSdk (3.2.0)
   - Google-Mobile-Ads-SDK (7.36.0)
-  - GoogleAds-IMA-iOS-SDK (3.10.1)
+  - GoogleAds-IMA-iOS-SDK (3.11.1)
   - TapjoySDK (11.10.2)
   - UnityAds (3.3.0)
   - VungleSDK-iOS (6.2.0)
@@ -78,7 +78,7 @@ SPEC CHECKSUMS:
   ChocolatePlatform-SDK-AdColony: ae989cfd74a170497946faad360f641a09aa2810
   ChocolatePlatform-SDK-Amazon: c6f35aa6767ea0f75c44ed33990ed2983df3cf8a
   ChocolatePlatform-SDK-AppLovin: c5205c61f3663d06cc5b29c439fb8d8540c140ac
-  ChocolatePlatform-SDK-Core: 568d8442d8a5fa5f959b013920757b23eebd2ef5
+  ChocolatePlatform-SDK-Core: b2c71167b9b2824af28798331652fe53f40dfddf
   ChocolatePlatform-SDK-Criteo: 8b00fb1cc6735aea65f1aa5fd34021b8bd8b6b43
   ChocolatePlatform-SDK-Google: c4cbdb21f61a911a9c9872ee3c4ae17eee9a6b71
   ChocolatePlatform-SDK-Googleadmob: 4e46560810180ce7327c150a704343a9a6d8e18e
@@ -87,7 +87,7 @@ SPEC CHECKSUMS:
   ChocolatePlatform-SDK-Vungle: 743c60f31a3480b0169ac78a6349176ddae49a90
   CriteoPublisherSdk: 4697cb44768aa99aa0347d920826a1d24a9e044f
   Google-Mobile-Ads-SDK: 5bb4d2cea811842e104a24780caef63b4808e1bd
-  GoogleAds-IMA-iOS-SDK: 0e37ab83b22075ad631a70dcba9528cb246c92bf
+  GoogleAds-IMA-iOS-SDK: 5bc743cca6f70bb403f34a6a336a2dbe70e12e1e
   TapjoySDK: e12ca74dc0ff0ef18c252c9035975857ee1e032d
   UnityAds: 0b7ecf8df83e8a3d62122a3fcf61e47c8e848f3c
   VungleSDK-iOS: a8665f4e826ad688135429f4618df4235f8738c7
