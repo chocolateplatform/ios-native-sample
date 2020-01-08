@@ -37,8 +37,15 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     
     adTypes = @[@"Interstitial", @"Rewarded", @"Banner", @"Preroll", @"Small Banner"];
     
+    CGFloat nativePortraitWidth = UIScreen.mainScreen.nativeBounds.size.width/UIScreen.mainScreen.scale;
+    
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = UIColor.whiteColor;
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = UIColor.systemBackgroundColor;
+    } else {
+        // Fallback on earlier versions
+        self.view.backgroundColor = UIColor.whiteColor;
+    }
     self.title = @"Chocolate";
     
     prompt = [[UILabel alloc] init];
@@ -49,10 +56,13 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     prompt.translatesAutoresizingMaskIntoConstraints = NO;
     if (@available(iOS 11.0, *)) {
         [prompt.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:20].active = YES;
+        [prompt.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:10].active = YES;
     } else {
         [prompt.topAnchor constraintEqualToAnchor:self.topLayoutGuide.topAnchor].active = YES;
+        [prompt.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:10].active = YES;
+
     }
-    [prompt.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:10].active = YES;
+    [prompt.heightAnchor constraintEqualToConstant:prompt.frame.size.height].active = YES;
     
     adTypePicker = [[UIPickerView alloc] init];
     adTypePicker.dataSource = self;
@@ -61,6 +71,7 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     adTypePicker.translatesAutoresizingMaskIntoConstraints = NO;
     [adTypePicker.centerYAnchor constraintEqualToAnchor:prompt.centerYAnchor].active = YES;
     [adTypePicker.leftAnchor constraintEqualToAnchor:prompt.rightAnchor constant:20].active = YES;
+    [adTypePicker.heightAnchor constraintEqualToConstant:216.0].active = YES;
     
     partnerSelectionPrompt = [[UILabel alloc] init];
     partnerSelectionPrompt.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
@@ -85,10 +96,14 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     publisherVideo.view.translatesAutoresizingMaskIntoConstraints = NO;
     if (@available(iOS 11.0, *)) {
         [publisherVideo.view.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor].active = YES;
+        [publisherVideo.view.rightAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.rightAnchor].active = YES;
+
     } else {
         [publisherVideo.view.bottomAnchor constraintEqualToAnchor:self.topLayoutGuide.bottomAnchor].active = YES;
+        [publisherVideo.view.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
+
     }
-    [publisherVideo.view.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
+    [publisherVideo.view.widthAnchor constraintEqualToConstant:nativePortraitWidth].active = YES;
     [publisherVideo.view.heightAnchor constraintEqualToAnchor:publisherVideo.view.widthAnchor multiplier:0.5625].active = YES; //9:16 aspect ratio
     
     publisherVideo.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
@@ -106,7 +121,7 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     [self.view addSubview:loadButton];
     loadButton.translatesAutoresizingMaskIntoConstraints = NO;
     [loadButton.leftAnchor constraintEqualToAnchor:prompt.leftAnchor].active = YES;
-    [loadButton.topAnchor constraintEqualToAnchor:adTypePicker.bottomAnchor constant:20].active = YES;
+    [loadButton.topAnchor constraintEqualToAnchor:adTypePicker.bottomAnchor constant:5].active = YES;
     
     showButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [showButton setTitle:@"Show" forState:UIControlStateNormal];
@@ -116,13 +131,8 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     [self.view addSubview:showButton];
     showButton.translatesAutoresizingMaskIntoConstraints = NO;
     [showButton.leftAnchor constraintEqualToAnchor:loadButton.rightAnchor constant:20].active = YES;
-    [showButton.topAnchor constraintEqualToAnchor:adTypePicker.bottomAnchor constant:20].active = YES;
-    
-    prerollFullscreenToggle = [[UISwitch alloc] init];
-    [self.view addSubview:prerollFullscreenToggle];
-    prerollFullscreenToggle.translatesAutoresizingMaskIntoConstraints = NO;
-    [prerollFullscreenToggle.centerYAnchor constraintEqualToAnchor:showButton.centerYAnchor].active = YES;
-    [prerollFullscreenToggle.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-10].active = YES;
+    [showButton.topAnchor constraintEqualToAnchor:loadButton.topAnchor].active = YES;
+    [showButton.heightAnchor constraintEqualToAnchor:loadButton.heightAnchor].active = YES;
     
     prerollFullscreenPrompt = [[UILabel alloc] init];
     prerollFullscreenPrompt.font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
@@ -130,8 +140,14 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     [prerollFullscreenPrompt sizeToFit];
     [self.view addSubview:prerollFullscreenPrompt];
     prerollFullscreenPrompt.translatesAutoresizingMaskIntoConstraints = NO;
-    [prerollFullscreenPrompt.centerYAnchor constraintEqualToAnchor:prerollFullscreenToggle.centerYAnchor].active = YES;
-    [prerollFullscreenPrompt.trailingAnchor constraintEqualToAnchor:prerollFullscreenToggle.leadingAnchor constant:-20].active = YES;
+    [prerollFullscreenPrompt.centerYAnchor constraintEqualToAnchor:showButton.centerYAnchor].active = YES;
+    [prerollFullscreenPrompt.leadingAnchor constraintEqualToAnchor:showButton.trailingAnchor constant:50].active = YES;
+    
+    prerollFullscreenToggle = [[UISwitch alloc] init];
+    [self.view addSubview:prerollFullscreenToggle];
+    prerollFullscreenToggle.translatesAutoresizingMaskIntoConstraints = NO;
+    [prerollFullscreenToggle.centerYAnchor constraintEqualToAnchor:showButton.centerYAnchor].active = YES;
+    [prerollFullscreenToggle.leadingAnchor constraintEqualToAnchor:prerollFullscreenPrompt.trailingAnchor constant:20].active = YES;
     
     prerollFullscreenPrompt.hidden = YES;
     prerollFullscreenToggle.hidden = YES;
@@ -140,10 +156,14 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     inviewAdContainer.backgroundColor = UIColor.lightGrayColor;
     [self.view addSubview:inviewAdContainer];
     inviewAdContainer.translatesAutoresizingMaskIntoConstraints = NO;
-    [inviewAdContainer.topAnchor constraintEqualToAnchor:loadButton.bottomAnchor constant:10].active = YES;
-    [inviewAdContainer.bottomAnchor constraintEqualToAnchor:publisherVideo.view.topAnchor constant:-10].active = YES;
-    [inviewAdContainer.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    [inviewAdContainer.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
+    //[inviewAdContainer.topAnchor constraintEqualToAnchor:loadButton.bottomAnchor constant:10].active = YES;
+    //[inviewAdContainer.bottomAnchor constraintEqualToAnchor:publisherVideo.view.topAnchor constant:-10].active = YES;
+    //[inviewAdContainer.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    //[inviewAdContainer.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
+    [inviewAdContainer.widthAnchor constraintEqualToConstant:nativePortraitWidth].active = YES;
+    [inviewAdContainer.heightAnchor constraintEqualToConstant:342.0].active = YES;
+    [inviewAdContainer.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
+    [inviewAdContainer.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
     
     inviewAdPrompt = [[UILabel alloc] init];
     inviewAdPrompt.font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
@@ -152,7 +172,7 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     [inviewAdContainer addSubview:inviewAdPrompt];
     inviewAdPrompt.translatesAutoresizingMaskIntoConstraints = NO;
     [inviewAdPrompt.leadingAnchor constraintEqualToAnchor:inviewAdContainer.leadingAnchor constant:10].active = YES;
-    [inviewAdPrompt.topAnchor constraintEqualToAnchor:inviewAdPrompt.topAnchor constant:10].active = YES;
+    [inviewAdPrompt.topAnchor constraintEqualToAnchor:inviewAdContainer.topAnchor constant:10].active = YES;
     
     prerollFullscreenPrompt.hidden = YES;
     prerollFullscreenToggle.hidden = YES;
