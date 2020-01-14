@@ -62,7 +62,8 @@ static UIViewController *fullscreenAdContainer = nil;
 -(void)showBannerAd {
     adTypeLoadedStates[2] = @NO;
     [self adjustUIForAdState];
-    [banner showIn:inviewAdContainer at:[self.view convertPoint:inviewAdContainer.center toView:inviewAdContainer]];
+    CGPoint pos = CGPointMake(inviewAdContainer.center.x, inviewAdContainer.center.y + 10);
+    [banner showIn:inviewAdContainer at:[self.view convertPoint:pos toView:inviewAdContainer]];
 }
 
 -(void)loadPrerollAd {

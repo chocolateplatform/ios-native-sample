@@ -24,6 +24,11 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     
     UILabel *partnerSelectionPrompt;
     UISwitch *partnerSelectionToggle;
+    
+    NSLayoutConstraint *inviewContainerPortraitYPos;
+    NSLayoutConstraint *inviewContainerLandscapeYPos;
+    NSLayoutConstraint *inviewContainerPortraitXPox;
+    NSLayoutConstraint *inviewContainerLandscapeXPos;
 }
 
 @end
@@ -160,10 +165,18 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     //[inviewAdContainer.bottomAnchor constraintEqualToAnchor:publisherVideo.view.topAnchor constant:-10].active = YES;
     //[inviewAdContainer.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
     //[inviewAdContainer.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
-    [inviewAdContainer.widthAnchor constraintEqualToConstant:nativePortraitWidth].active = YES;
-    [inviewAdContainer.heightAnchor constraintEqualToConstant:342.0].active = YES;
-    [inviewAdContainer.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
-    [inviewAdContainer.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
+    inviewContainerPortraitYPos = [inviewAdContainer.topAnchor constraintEqualToAnchor:loadButton.bottomAnchor constant:10];
+    inviewContainerLandscapeYPos = [inviewAdContainer.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor];
+    inviewContainerPortraitXPox = [inviewAdContainer.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor];
+    inviewContainerLandscapeXPos = [inviewAdContainer.rightAnchor constraintEqualToAnchor:self.view.rightAnchor];
+    
+    inviewContainerPortraitXPox.active = YES;
+    inviewContainerPortraitYPos.active = YES;
+    
+    [inviewAdContainer.widthAnchor constraintEqualToConstant:330].active = YES;
+    [inviewAdContainer.heightAnchor constraintEqualToConstant:300].active = YES;
+    //[inviewAdContainer.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
+    
     
     inviewAdPrompt = [[UILabel alloc] init];
     inviewAdPrompt.font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
@@ -289,4 +302,25 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     showButton.enabled = relevantAdTypeState;
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        UIInterfaceOrientation orient =  UIApplication.sharedApplication.statusBarOrientation;
+        
+        if(orient == UIInterfaceOrientationPortrait) {
+            self->inviewContainerLandscapeYPos.active = NO;
+            self->inviewContainerLandscapeXPos.active = NO;
+            self->inviewContainerPortraitYPos.active = YES;
+            self->inviewContainerPortraitXPox.active = YES;
+        } else {
+            self->inviewContainerPortraitYPos.active = NO;
+            self->inviewContainerPortraitXPox.active = NO;
+            self->inviewContainerLandscapeYPos.active = YES;
+            self->inviewContainerLandscapeXPos.active = YES;
+        }
+        
+    } completion:nil];
+    
+    
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+}
 @end
