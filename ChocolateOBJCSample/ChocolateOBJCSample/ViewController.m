@@ -121,7 +121,7 @@ static NSString *CONTENT = @"https://www.sample-videos.com/video123/mp4/720/big_
     [self.view addSubview:loadButton];
     loadButton.translatesAutoresizingMaskIntoConstraints = NO;
     [loadButton.leftAnchor constraintEqualToAnchor:prompt.leftAnchor].active = YES;
-    [loadButton.topAnchor constraintEqualToAnchor:adTypePicker.bottomAnchor constant:5].active = YES;
+    [loadButton.topAnchor constraintEqualToAnchor:partnerSelectionToggle.bottomAnchor constant:5].active = YES;
     
     showButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [showButton setTitle:@"Show" forState:UIControlStateNormal];
