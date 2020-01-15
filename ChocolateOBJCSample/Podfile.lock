@@ -1,15 +1,15 @@
 PODS:
-  - AdColony (3.3.8.1)
-  - AmazonAd (2.2.15.1)
-  - AppLovinSDK (6.9.5)
-  - ChocolatePlatform-SDK-AdColony (3.0.1):
-    - AdColony (~> 3.3)
+  - AdColony (4.1.2)
+  - AmazonAd (3.0.0)
+  - AppLovinSDK (6.11.1)
+  - ChocolatePlatform-SDK-AdColony (3.1.0):
+    - AdColony (~> 4.1.2)
     - ChocolatePlatform-SDK-Core (~> 3.0)
-  - ChocolatePlatform-SDK-Amazon (2.0.1):
-    - AmazonAd (~> 2.2)
+  - ChocolatePlatform-SDK-Amazon (2.1.0):
+    - AmazonAd (~> 3.0.0)
     - ChocolatePlatform-SDK-Core (~> 3.0)
-  - ChocolatePlatform-SDK-AppLovin (3.0.2):
-    - AppLovinSDK (~> 6.9.0)
+  - ChocolatePlatform-SDK-AppLovin (3.1.0):
+    - AppLovinSDK (~> 6.11.1)
     - ChocolatePlatform-SDK-Core (~> 3.0)
   - ChocolatePlatform-SDK-Core (3.0.4)
   - ChocolatePlatform-SDK-Criteo (1.0.0):
@@ -21,20 +21,20 @@ PODS:
   - ChocolatePlatform-SDK-Googleadmob (2.1.0):
     - ChocolatePlatform-SDK-Core (~> 3.0)
     - Google-Mobile-Ads-SDK (~> 7.53.1)
-  - ChocolatePlatform-SDK-Tapjoy (3.0.1):
+  - ChocolatePlatform-SDK-Tapjoy (3.1.0):
     - ChocolatePlatform-SDK-Core (~> 3.0)
-    - TapjoySDK (~> 11.10.2)
-  - ChocolatePlatform-SDK-Unity (4.0.1):
+    - TapjoySDK (~> 12.4.0)
+  - ChocolatePlatform-SDK-Unity (4.1.0):
     - ChocolatePlatform-SDK-Core (~> 3.0)
-    - UnityAds (~> 3.3.0)
-  - ChocolatePlatform-SDK-Vungle (3.0.1):
+    - UnityAds (~> 3.4.0)
+  - ChocolatePlatform-SDK-Vungle (3.1.0):
     - ChocolatePlatform-SDK-Core (~> 3.0)
-    - VungleSDK-iOS (~> 6.2.0)
+    - VungleSDK-iOS (~> 6.4.6)
   - CriteoPublisherSdk (3.2.0)
   - Google-Mobile-Ads-SDK (7.53.1):
     - GoogleAppMeasurement (~> 6.0)
   - GoogleAds-IMA-iOS-SDK (3.11.1)
-  - GoogleAppMeasurement (6.1.7):
+  - GoogleAppMeasurement (6.2.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
@@ -61,9 +61,9 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - TapjoySDK (11.10.2)
-  - UnityAds (3.3.0)
-  - VungleSDK-iOS (6.2.0)
+  - TapjoySDK (12.4.1)
+  - UnityAds (3.4.0)
+  - VungleSDK-iOS (6.4.6)
 
 DEPENDENCIES:
   - ChocolatePlatform-SDK-AdColony (~> 3.0)
@@ -103,28 +103,28 @@ SPEC REPOS:
     - VungleSDK-iOS
 
 SPEC CHECKSUMS:
-  AdColony: 21c9cdcc780854d406e213cb1e5ef9f2b165cca3
-  AmazonAd: 9b7226322bc124343d279a98c28cdae26c48a0e7
-  AppLovinSDK: 15268696b789c0954520ca95022fe2453bc41291
-  ChocolatePlatform-SDK-AdColony: ae989cfd74a170497946faad360f641a09aa2810
-  ChocolatePlatform-SDK-Amazon: c6f35aa6767ea0f75c44ed33990ed2983df3cf8a
-  ChocolatePlatform-SDK-AppLovin: c5205c61f3663d06cc5b29c439fb8d8540c140ac
+  AdColony: 0a1e13349ce430ce29374c665611013fd78f792c
+  AmazonAd: a2df415176ef57ff05d56ee7ec3dd3c993eb8e5a
+  AppLovinSDK: 604c3120850d65f1a5c708d51a86326a52f083f5
+  ChocolatePlatform-SDK-AdColony: aef41b20abec0a527d94ba1757236338689794be
+  ChocolatePlatform-SDK-Amazon: b43d381e84070a3ec39fc8ff9d12f53e5646e000
+  ChocolatePlatform-SDK-AppLovin: f9c281dd5feb402caccd3dcbabad784e58ff49a4
   ChocolatePlatform-SDK-Core: b2c71167b9b2824af28798331652fe53f40dfddf
   ChocolatePlatform-SDK-Criteo: 8b00fb1cc6735aea65f1aa5fd34021b8bd8b6b43
   ChocolatePlatform-SDK-Google: c4cbdb21f61a911a9c9872ee3c4ae17eee9a6b71
   ChocolatePlatform-SDK-Googleadmob: 25a88ddabcb6fe2dbaae1aa2048d872665755a49
-  ChocolatePlatform-SDK-Tapjoy: 34aabc222b9f46d64243a848f32c4eca1284c41f
-  ChocolatePlatform-SDK-Unity: 85e80356365c2ce9264da715b565e435a8b8aee6
-  ChocolatePlatform-SDK-Vungle: 743c60f31a3480b0169ac78a6349176ddae49a90
+  ChocolatePlatform-SDK-Tapjoy: abf66fdf671048fd01bf8d963cd2a20bc10d114a
+  ChocolatePlatform-SDK-Unity: 8b3b004d90f577e8acbf2231117219d790c7e463
+  ChocolatePlatform-SDK-Vungle: d618c6fe251e1a8c17e0547793fb27b50a8e8e11
   CriteoPublisherSdk: 4697cb44768aa99aa0347d920826a1d24a9e044f
   Google-Mobile-Ads-SDK: fac081606dbd438d8db57198b83ba8b5f875a601
   GoogleAds-IMA-iOS-SDK: 5bc743cca6f70bb403f34a6a336a2dbe70e12e1e
-  GoogleAppMeasurement: db118eb61a97dd8c4f7014e368d3c335cbbcf80a
+  GoogleAppMeasurement: a08a43b8677b95ed51fcef880e36737334d804fd
   GoogleUtilities: f8de7ddf8c706f58e9b405d53e38bbdaa2731e5a
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  TapjoySDK: e12ca74dc0ff0ef18c252c9035975857ee1e032d
-  UnityAds: 0b7ecf8df83e8a3d62122a3fcf61e47c8e848f3c
-  VungleSDK-iOS: a8665f4e826ad688135429f4618df4235f8738c7
+  TapjoySDK: 57967ae44ae49d383704be0f25cb5d50ea9487c4
+  UnityAds: 3a60ca937078be375f5020deac747618c0baa931
+  VungleSDK-iOS: 6bf8b4fef32afc169acbc1291485560c81ceb293
 
 PODFILE CHECKSUM: 6e5b8891e836285cb08fd649ea2cd4ef10dc0373
 
